@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f1">
+  <meta name="description" content="Discover Westchester County tech events, high school clubs, student inventions, and a countywide hackathon in the making.">
+  <title>WestchesterTech.org | The student tech network</title>
+  <link rel="icon" href="data:,">
+  <style>
+:root{--ink:#181a18;--muted:#555954;--paper:#f7f7f2;--line:#d5d6ce;--orange:#ff592c;--sans:"DM Sans","Inter",Arial,Helvetica,sans-serif;--mono:"IBM Plex Mono","Cascadia Mono",Consolas,monospace;color:var(--ink);background:var(--paper);font-family:var(--sans);font-synthesis:none;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0}
+button,input,textarea,select{font:inherit}
+button,a{color:inherit;-webkit-tap-highlight-color:transparent}
+a{text-decoration:none}
+button{cursor:pointer}
+:focus-visible{outline:3px solid #2063db;outline-offset:4px}
+button:disabled{cursor:wait;opacity:.65}
+.wrap{width:min(1376px,calc(100% - clamp(40px,11vw,188px)));margin-inline:auto}
+svg{display:block}
+[data-icon]{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.ico{width:1.1rem;height:1.1rem;flex-shrink:0}
+.skip,.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip:focus{z-index:20;clip-path:none;width:auto;height:auto;background:white;padding:1rem}
+.header{border-bottom:1px solid var(--line);background:var(--paper);position:relative;z-index:3}
+.header-row,.foot-row{display:flex;align-items:center;justify-content:space-between;gap:22px}
+.header-row{min-height:78px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-size:clamp(1.15rem,1.7vw,1.52rem);font-weight:750;letter-spacing:-.07em;white-space:nowrap}
+
+.brand-domain{color:#60645c;font-weight:500;letter-spacing:-.07em}
+nav,.header-actions,.hero-actions,.button,.menu-toggle,.view-toggle,.filters,.filter,.meta,.wire-label,.wire-items,.wire-items a,.eyebrow,.tag,.post-foot{display:flex;align-items:center}
+nav{gap:clamp(20px,2.3vw,44px);margin-left:auto;margin-right:clamp(14px,2.1vw,40px);font-size:.93rem;font-weight:600}
+nav a{padding:10px 0}
+nav a:hover,nav a.current{text-decoration:underline;text-underline-offset:6px}
+.header-actions{gap:12px}
+.button{width:max-content;justify-content:center;gap:10px;line-height:1.12;border-radius:5px;border:1px solid transparent;min-height:46px;padding:11px 19px;font-size:.94rem;font-weight:650;transition:background .15s,transform .15s}
+.button:hover{transform:translateY(-2px)}
+.button.orange{background:var(--orange);color:#171812}.button.orange:hover{background:#ff754b}
+.button.black{background:var(--ink);color:#fff;border-color:var(--ink)}.button.black:hover{background:#343832}
+.button.outline{background:var(--paper);border-color:#a7aaa0}.button.outline:hover{background:#eeeee6;border-color:var(--ink)}
+.button.top-join{min-height:39px;padding:9px 15px}
+.menu-toggle{display:none;justify-content:center;background:none;border:1px solid var(--line);border-radius:4px;width:40px;height:40px}
+.hero{background:var(--paper)}
+.hero-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.025fr);align-items:center;gap:clamp(32px,4.5vw,88px);padding-block:clamp(35px,4vw,64px)}
+.eyebrow,.wire-label,.overline,.tag,.meta,.place,.foot-place,.dialog-kicker,.result-count{font-family:var(--mono)}
+.eyebrow,.wire-label,.tag,.dialog-kicker{font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.095em;line-height:1.35}
+.hero-loc{gap:9px}
+.hero-loc .ico{width:17px;height:17px;color:#d64418}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(4rem,6.35vw,7.4rem);font-weight:750;line-height:.96;letter-spacing:-.081em;margin:23px 0 19px}
+h1 span,.connect h2 span{color:var(--orange)}
+.hero-copy>p,.connect p{font-size:clamp(1rem,1.12vw,1.2rem);line-height:1.55;letter-spacing:-.014em;color:var(--muted);max-width:465px}
+.hero-actions{gap:12px;margin-top:25px;flex-wrap:wrap}
+.hero-art{display:block;overflow:hidden;aspect-ratio:1.68;background:#f0f0ea;border:1px solid var(--line);border-radius:7px}
+.hero-art img{display:block;width:100%;height:100%;object-fit:cover}
+.wire{background:#f0f0e8;border-block:1px solid #c8cbbf}
+.wire-row{display:flex;align-items:stretch;min-height:43px}
+.wire-label{white-space:nowrap;gap:9px;padding-right:20px;border-right:1px solid #c8cbbf;letter-spacing:.085em;font-size:.76rem}
+.wire-label .ico{color:#cb3b13;width:20px;height:20px}
+.wire-items{min-width:0;overflow:auto;scrollbar-width:none;gap:0;justify-content:space-around;flex:1}
+.wire-items::-webkit-scrollbar,.filters::-webkit-scrollbar{display:none}
+.wire-items a{white-space:nowrap;font:500 .76rem var(--mono);padding:10px 16px;gap:9px}
+.wire-items a:hover{text-decoration:underline;text-underline-offset:3px}
+.wire-items b{font-weight:650;color:#bd3a15;letter-spacing:.035em}
+.wire-items a+a:before{content:"";width:4px;height:4px;background:#979b8e;transform:rotate(45deg);margin-right:clamp(6px,1vw,20px)}
+.board{padding-block:clamp(37px,3.45vw,60px) clamp(48px,5vw,76px);scroll-margin-top:18px}
+.board-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px}
+.overline{gap:8px;font-size:.73rem;letter-spacing:.12em}
+.overline:before{content:"";width:20px;height:3px;background:var(--orange);display:inline-block}
+h2{font-size:clamp(2.15rem,3.25vw,3.7rem);letter-spacing:-.068em;line-height:1.05;font-weight:700}
+.board h2{margin-top:9px}
+.view-toggle{padding:3px;gap:2px;border:1px solid #c4c7bd;border-radius:5px}
+.view-toggle button{display:grid;place-items:center;width:32px;height:28px;border:0;color:#5a6058;border-radius:2px;background:transparent}
+.view-toggle button[aria-pressed=true]{background:var(--ink);color:white}
+.view-toggle .ico{width:15px;height:15px}
+.filters{gap:8px;margin:23px 0 20px;overflow-x:auto;scrollbar-width:none;padding:2px 1px}
+.filter{gap:7px;white-space:nowrap;min-height:33px;padding:7px 12px;border:1px solid #cbcec2;border-radius:5px;font-weight:550;font-size:.84rem;background:transparent}
+.filter .ico{height:15px;width:15px}
+.filter:hover{border-color:#62665d}
+.filter[aria-pressed=true]{background:var(--ink);color:white;border-color:var(--ink)}
+.post-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(15px,1.8vw,29px)}
+.post-card{border:1px solid #ced0c6;border-radius:7px;overflow:hidden;background:#fcfcf8;display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s}
+.post-card:hover{border-color:#96998e;transform:translateY(-3px);box-shadow:0 6px 16px #1b201511}
+.card-art{display:block;width:100%;aspect-ratio:2.07;object-fit:cover;background:#f0f0ea;border-bottom:1px solid var(--line)}
+.card-body{padding:18px 19px 14px;display:flex;flex-direction:column;flex-grow:1}
+.tag{gap:6px;color:#3a3e35;font-size:.65rem;letter-spacing:.11em;width:max-content}
+.tag:before{content:"";width:7px;height:7px;background:var(--tag,#555)}
+.tag.hackathon{--tag:#ee5b24}.tag.events{--tag:#305be4}.tag.innovations{--tag:#9571cd}.tag.clubs{--tag:#6d9257}
+.post-card h3{margin-top:9px;font-size:clamp(1.22rem,1.47vw,1.6rem);letter-spacing:-.045em;line-height:1.17}
+.card-body p{font-size:.94rem;line-height:1.45;color:var(--muted);margin-top:8px}
+.post-foot{margin:2px 19px 0;padding-block:12px;gap:6px;flex-wrap:wrap;justify-content:space-between;border-top:1px solid #e0e1d8}
+.meta,.place{font-size:.71rem;color:#4f544d;line-height:1.4}
+.meta{gap:6px}.meta .ico{width:14px;height:14px}
+.place{display:flex;align-items:center;gap:4px}.place .ico{width:13px;height:13px}
+.more-wrap{display:grid;justify-content:center;margin-top:24px}
+.more-wrap[hidden]{display:none}
+.post-grid.is-list{grid-template-columns:1fr;gap:10px}
+.is-list .post-card{display:grid;grid-template-columns:116px 1fr minmax(120px,20%);align-items:center}
+.is-list .card-art{height:100%;min-height:92px;aspect-ratio:auto}
+.is-list .card-body{padding:14px 18px}.is-list h3{font-size:1.18rem;margin-top:4px}.is-list .card-body p{margin-top:4px}
+.is-list .post-foot{margin:0 18px 0 0;flex-direction:column;border:0;align-items:flex-start}
+.connect{background:#20231f;color:#f5f5ec}
+.connect-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;padding-block:47px}
+.connect h2{margin:11px 0 12px}.connect p{color:#cacdc3}
+.connect-links{display:grid}
+.connect-links a{display:flex;align-items:center;gap:14px;border-bottom:1px solid #51554b;min-height:50px;padding:10px 0;font-weight:550}
+.connect-links a:first-child{border-top:1px solid #51554b}
+.connect-links a:hover{color:#ff916a}.connect-links a>[data-icon]:first-child{color:var(--orange)}
+.connect-links a>[data-icon]:last-child{margin-left:auto}
+.foot-row{min-height:85px}.foot-row .brand{font-size:1.15rem}
+.copyright{padding:15px 0 21px;border-top:1px solid var(--line);font-size:.875rem;line-height:1.55;color:var(--muted);text-wrap:pretty}
+.foot-place{font-size:.75rem;letter-spacing:.02em;color:var(--muted)}
+dialog{width:min(570px,calc(100% - 24px));max-height:90dvh;overflow:auto;padding:0;border:1px solid #3e4238;border-radius:8px;background:var(--paper);box-shadow:0 24px 80px #1115;color:var(--ink)}
+dialog::backdrop{background:#12161199;backdrop-filter:blur(4px)}
+body:has(dialog[open]){overflow:hidden}
+.dialog-close{display:grid;place-items:center;position:absolute;right:12px;top:12px;z-index:1;background:var(--paper);border:1px solid #c2c5b8;border-radius:4px;width:34px;height:34px}
+.dialog-art{width:100%;height:154px;object-fit:cover;display:block;background:#f0f0ea;border-bottom:1px solid var(--line)}
+.dialog-main{padding:30px}.dialog-main.no-art{padding-top:40px}
+.dialog-main h2{font-size:2.15rem;margin:10px 0 13px;padding-right:18px}
+.dialog-main>p{font-size:1rem;line-height:1.55;color:var(--muted)}
+.facts{margin:20px 0 25px}.facts div{padding:12px 0;border-bottom:1px solid var(--line)}
+.facts dt,.form-label{display:block;font-size:.84rem;font-weight:700;margin-bottom:4px}
+.facts dd{margin:0;color:var(--muted);line-height:1.45;font-size:.96rem}
+.dialog-kicker{color:#af371a}
+.join-form{margin-top:23px;display:grid;gap:15px}
+.join-form input,.join-form select,.join-form textarea{width:100%;border:1px solid #adb2a5;border-radius:4px;background:#fff;color:var(--ink);padding:10px 12px;min-height:43px}
+.join-form textarea{min-height:78px;resize:vertical}
+.join-form select{appearance:none;padding-right:33px}
+.join-form label:has(>select){position:relative}
+.join-form label:has(>select)::after{content:"";position:absolute;right:16px;bottom:18px;width:7px;height:7px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);pointer-events:none}
+.form-label small{font-weight:400;color:var(--muted)}.form-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field-note,.form-status{font-size:.86rem;line-height:1.4;color:var(--muted)}
+.form-status:empty{display:none}.form-status.error{color:#a92e15}
+@media(min-width:1600px){.hero-layout{padding-block:64px}.hero-art{max-height:450px}}
+@media(max-width:1000px){.wrap{width:calc(100% - 7vw)}nav{gap:16px;margin-right:9px}.hero-layout{gap:25px}.hero-art{aspect-ratio:1.43}h1{font-size:clamp(3.3rem,6.8vw,5rem)}.hero-copy>p{font-size:1rem}.wire-items{justify-content:flex-start}.wire-items a{padding-inline:13px}.wire-items a+a:before{margin-right:2px}.card-body{padding-inline:13px}.post-foot{margin-inline:13px}.filter{font-size:.82rem}.board h2{font-size:2.5rem}}
+@media(max-width:760px){.header-row{min-height:64px;gap:10px}.menu-toggle{display:flex}.brand{font-size:1.12rem;gap:6px}nav{position:absolute;top:100%;left:0;right:0;margin:0;display:none;align-items:stretch;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:4px 5vw 13px;box-shadow:0 12px 18px #1111}nav.is-open{display:flex}nav a{padding:13px 0;border-top:1px solid var(--line)}.header-actions{gap:8px}.button.top-join{min-height:36px;font-size:.83rem;padding:9px 11px}.menu-toggle{width:36px;height:36px}.wrap{width:calc(100% - 8vw)}.hero-layout{grid-template-columns:1fr;padding-block:32px 25px;gap:25px}h1{font-size:clamp(3.7rem,10vw,5.4rem);margin:18px 0 15px}.hero-copy>p{max-width:520px}.hero-actions{margin-top:18px}.hero-art{aspect-ratio:1.98}.wire-label{padding-right:10px;font-size:.68rem;gap:6px}.wire-items a{font-size:.7rem}.board{padding-block:33px 42px}.board h2{font-size:clamp(1.9rem,5vw,2.5rem)}.filters{margin:16px 0}.post-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.connect-grid{grid-template-columns:1fr;gap:23px;padding-block:35px}.foot-row{min-height:73px}.foot-place{font-size:.64rem}}
+@media(max-width:490px){.post-grid{grid-template-columns:1fr}.card-art{aspect-ratio:2.2}.card-body{padding:15px 16px}.card-body h3{font-size:1.34rem}.post-foot{margin-inline:16px}.header-row{gap:5px}.header-actions{gap:6px}.brand{font-size:1.01rem}.button.top-join{font-size:.78rem;padding:8px}.button.top-join .ico{width:13px}.hero-actions .button{min-height:42px;font-size:.85rem;padding:10px 13px}.hero-actions{gap:8px}.board-head{gap:7px}.view-toggle{padding:2px}.view-toggle button{width:26px;height:26px}.filters{margin-right:-4vw;padding-right:4vw}.wire-row{width:100%;padding-left:4vw}.foot-row{align-items:flex-start;flex-direction:column;justify-content:center;gap:7px;padding-block:18px}.is-list .post-card{grid-template-columns:72px 1fr}.is-list .card-body{padding:12px}.is-list .post-foot{grid-column:2;padding:0 12px 10px;margin:0}.is-list .card-art{grid-row:1/3}.is-list .card-body p{display:none}.dialog-main{padding:23px}.form-pair{grid-template-columns:1fr}.filter{padding-inline:10px}.connect-links a{font-size:.94rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+</style>
+  
+  
+</head>
+<body>
+  <a class="skip" href="#board">Skip to community board</a>
+  <header class="header" id="top">
+    <div class="wrap header-row">
+      <a class="brand" href="#top" aria-label="WestchesterTech.org home"><span>WestchesterTech<span class="brand-domain">.org</span></span></a>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#board/events">Events</a><a href="#board/innovations">Innovations</a><a href="#board/clubs">Clubs</a><a href="#post/westchester-hackathon">Hackathon</a>
+      </nav>
+      <div class="header-actions"><a class="button orange top-join" href="#join"><span data-icon="plus"></span>Get involved</a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navigation"><span data-icon="menu"></span></button></div>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <div class="eyebrow hero-loc"><span data-icon="locate"></span>Westchester County, NY</div>
+          <h1 id="hero-title">Built here.<br>Built together<span>.</span></h1>
+          <p>Your hub for high school tech in Westchester. Discover local events, meet student builders, and bring your next idea to life.</p>
+          <div class="hero-actions"><a class="button black" href="#board"><span data-icon="grid"></span>Explore the board</a><a class="button outline" href="#board/clubs"><span data-icon="users"></span>Find a club</a></div>
+        </div>
+        <div class="hero-art"><!-- Place the hero image here and give it descriptive alt text. --></div>
+      </div>
+    </section>
+    <section class="wire" aria-label="Upcoming local events">
+      <div class="wrap wire-row">
+        <div class="wire-label"><span data-icon="signal"></span>On the wire</div>
+        <div class="wire-items" id="wire-items"></div>
+      </div>
+    </section>
+    <section class="board wrap" id="board" aria-labelledby="board-title">
+      <div class="board-head"><div><div class="eyebrow overline">Community feed</div><h2 id="board-title">The community board</h2></div>
+        <div class="view-toggle" aria-label="Board layout"><button id="grid-view" aria-label="Grid view" aria-pressed="true" title="Grid view"><span data-icon="grid"></span></button><button id="list-view" aria-label="List view" aria-pressed="false" title="List view"><span data-icon="list"></span></button></div>
+      </div>
+      <div id="filters" class="filters" role="group" aria-label="Filter community posts"></div>
+      <div id="post-grid" class="post-grid"></div>
+      <p id="board-status" class="sr" role="status"></p>
+      <div id="more-wrap" class="more-wrap"><button class="button outline" id="more-posts"><span data-icon="plus"></span>Show more posts</button></div>
+    </section>
+    <section class="connect" aria-labelledby="connect-title"><div class="wrap connect-grid">
+      <div><div class="eyebrow overline">Get involved</div><h2 id="connect-title">Build with us<span>.</span></h2><p>Bring your school, your experience, or your support to the Westchester tech community.</p></div>
+      <div class="connect-links">
+        <a href="#join/club"><span data-icon="users"></span><span>Connect your school club</span><span data-icon="plus"></span></a>
+        <a href="#join/mentor"><span data-icon="bulb"></span><span>Become a mentor or speaker</span><span data-icon="plus"></span></a>
+        <a href="#join/sponsor"><span data-icon="handshake"></span><span>Sponsor a student project or event</span><span data-icon="plus"></span></a>
+      </div>
+    </div></section>
+  </main>
+  <footer class="wrap">
+    <div class="foot-row">
+      <a class="brand" href="#top"><span>WestchesterTech<span class="brand-domain">.org</span></span></a>
+      <span class="foot-place">Westchester County, New York</span>
+    </div>
+    <p class="copyright">© 2026 Westchester Tech Alliance. All rights reserved. Founded by Lucas Yu.</p>
+  </footer>
+  <dialog id="dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close dialog"><span data-icon="close"></span></button><div id="dialog-content"></div></dialog>
+<script>const posts = [
+  {
+    id: 'westchester-hackathon', category: 'hackathon', title: 'Westchester Hackathon',
+    summary: 'A countywide build day for high school students is taking shape. Help bring the first edition to life.',
+    image: '', imageAlt: '', meta: 'In the works', place: 'Countywide', icon: 'flag',
+    intro: 'The idea is simple. Bring high school builders from across Westchester into one space, form teams, and make something worth sharing.',
+    details: [['Status', 'In planning. The date and venue are still open.'], ['Who can get involved', 'Westchester high school students, school clubs, mentors, and local sponsors.'], ['Ways to help', 'Bring a team, suggest a venue, coach first-time builders, or contribute equipment.']],
+    action: 'Join the interest list', formRole: 'hackathon'
+  },
+  {
+    id: 'onshape-boat-challenge', category: 'events', title: 'Onshape Boat Challenge',
+    summary: 'Design a boat in CAD, then race your 3D-printed build with the Scarsdale Robo Raiders.',
+    image: '', imageAlt: '', meta: 'Dec 15 & 19, 2026', place: 'Tuckahoe', icon: 'calendar',
+    intro: 'The Scarsdale Robo Raiders lead this two-part workshop at Tuckahoe Public Library. Learn Onshape in the first session, then assemble and race your printed boat in the second.',
+    details: [['When', 'Tuesday, December 15 and Saturday, December 19, 2026. Both sessions start at 3:45 pm ET.'], ['Where', 'Tuckahoe Public Library, 71 Columbus Avenue, Tuckahoe.'], ['Before you go', 'For tweens and teens ages 10 and up. Register with the library, bring a laptop, and plan to attend both dates.']],
+    url: 'https://tuckahoelibrary.libcal.com/event/17883432', action: 'Visit the event page'
+  },
+  {
+    id: 'bitview', category: 'innovations', title: 'BitView, built in Ardsley',
+    summary: 'Three students turned their internship interviews into an idea for a browser-based video app.',
+    image: '', imageAlt: '', meta: 'Student project', place: 'Ardsley', icon: 'code',
+    intro: 'After applying for internships and summer programs, Saihajbir Singh, Griffin Chan, and Ishan Gheewala wanted a simpler way to join a video interview. The Ardsley High School team built BitView so interviewers and applicants can meet directly in a browser.',
+    details: [['What they built', 'A web app for hosting live video interviews.'], ['Recognition', 'Winner of the 2025 Congressional App Challenge for New York’s 16th District, announced January 20, 2026.']],
+    url: 'https://www.congressionalappchallenge.us/25-ny16/', action: 'Read the project story'
+  },
+  {
+    id: '3d-pen-night', category: 'events', title: '3D Pen Night', summary: 'Take a drawing off the page with a 3D pen in the library’s Teen Room.',
+    image: '', imageAlt: '', meta: 'Nov 30, 2026', place: 'New Rochelle', icon: 'calendar',
+    intro: 'Make a small sculpture or build a gift with the library’s 3D pens. Ask the Teen Room staff about the 3D printer while you’re there.',
+    details: [['When', 'Monday, November 30, 2026, 3:00 to 8:00 pm ET.'], ['Where', 'Teen Room, New Rochelle Public Library, 1 Library Plaza.'], ['Who can attend', 'Students in grades 6 through 12.']],
+    url: 'https://www.newrochellelibrary.org/event/3d-pen-night-76547', action: 'Visit the event page'
+  },
+  {
+    id: 'scarsdale-robo-raiders', category: 'clubs', title: 'Scarsdale Robo Raiders', summary: 'Meet the Scarsdale High School students designing and programming competition robots.',
+    image: '', imageAlt: '', meta: 'Robotics team', place: 'Scarsdale', icon: 'users',
+    intro: 'The Robo Raiders build robots for the FIRST Tech Challenge. Their work extends beyond competition through student-led workshops in the community.',
+    details: [['School', 'Scarsdale High School'], ['Explore', 'Visit the team site to see its robots, competition work, and outreach.']],
+    url: 'https://www.scarsdalerobotics.com/', action: 'Visit the team website'
+  },
+  {
+    id: 'surgery-video', category: 'innovations', title: 'An AI editor for surgical footage', summary: 'A Byram Hills student found a way to cut hours of irrelevant footage from surgery recordings.',
+    image: '', imageAlt: '', meta: 'Student project', place: 'Armonk', icon: 'code',
+    intro: 'Byram Hills student Gavin Bunting designed a tool that identifies irrelevant sections of robotic surgery videos. A shorter recording gives researchers and educators less material to sift through.',
+    details: [['Field', 'Computer vision and surgical education'], ['Recognition', 'The work received a patent award at a national inventor competition.']],
+    url: 'https://www.byramhills.org/bhhs-posts/~board/bhhs-news/post/byram-hills-senior-gavin-bunting-wins-patent-award-at-national-inventor-competition', action: 'Read the school’s story'
+  },
+  {
+    id: 'open-maker', category: 'events', title: 'Open Maker', summary: 'Reserve a machine for an evening at the Scarsdale Public Library Makerspace.',
+    image: '', imageAlt: '', meta: 'Dec 9, 2026', place: 'Scarsdale', icon: 'calendar',
+    intro: 'Work on a hands-on project using the makerspace’s Glowforge, Cricut, sewing machine, embroidery machine, or button maker.',
+    details: [['When', 'Wednesday, December 9, 2026, 5:00 to 8:00 pm ET.'], ['Where', 'Scarsdale Public Library Makerspace, 54 Olmsted Road.'], ['Who can attend', 'Scarsdale residents, including teens. A machine reservation is required.']],
+    url: 'https://www.scarsdalelibrary.org/event/open-maker-165091', action: 'View reservations'
+  },
+  {
+    id: 'byram-hills-tech', category: 'clubs', title: 'Byram Hills Tech Club', summary: 'Custom PC builds, programming, 3D modeling, and mechanical keyboards in Armonk.',
+    image: '', imageAlt: '', meta: 'School club', place: 'Armonk', icon: 'users',
+    intro: 'Byram Hills students get hands-on with tech, from assembling custom PCs to exploring keyboards, code, and 3D design.',
+    details: [['School', 'Byram Hills High School'], ['How to connect', 'Byram Hills students can ask club adviser Mr. Lewick about the next meeting.']],
+    url: 'https://www.byramhills.org/uploaded/BHHS/2024-2025_School_Year/Community_Handbook/Community_Handbook_2024-2025_ao_8-16-2024_.pdf#page=63', action: 'Open the school club listing'
+  },
+  {
+    id: 'ossining-obots', category: 'clubs', title: 'Ossining O-Bots', summary: 'Ossining’s Team 4122 builds competition robots and brings STEM activities to local students.',
+    image: '', imageAlt: '', meta: 'Robotics team', place: 'Ossining', icon: 'users',
+    intro: 'Students in the Ossining Engineering Club design, build, and test robots for the FIRST Robotics Competition and share their work through local outreach.',
+    details: [['School', 'Ossining High School'], ['Team', 'FIRST Robotics Competition Team 4122']],
+    url: 'https://www.o-bot.org/', action: 'Visit the team website'
+  },
+  {
+    id: 'wesef', category: 'events', title: 'Westchester Science & Engineering Fair', summary: 'Present an original high school research project at Regeneron WESEF.',
+    image: '', imageAlt: '', meta: 'Mar 13, 2027', place: 'Somers', icon: 'calendar',
+    intro: 'Student researchers present their work to judges at the Regeneron Westchester Science & Engineering Fair.',
+    details: [['When and where', 'Saturday, March 13, 2027 at Somers High School.'], ['Registration', 'Work with a registered teacher. The student registration deadline is December 1, 2026.'], ['Fee', 'The organizer lists a $100 registration fee per student.']],
+    url: 'https://www.wesef.org/dates-to-know', action: 'View fair details'
+  }
+];
+const categories = {
+  all: {label:'All posts', icon:'grid'}, events: {label:'Events', tag:'Event', icon:'calendar'},
+  innovations: {label:'Innovations', tag:'Innovation',icon:'bulb'}, clubs: {label:'Clubs', tag:'Club', icon:'users'},
+  hackathon: {label:'Hackathon', tag:'Hackathon', icon:'terminal'}
+};
+const roles = {student:'Student builder', club:'School club leader', mentor:'Mentor or speaker', sponsor:'Sponsor or partner', hackathon:'Hackathon interest list'};
+</script>
+<script>function offlineReplaceLocation(target) {
+  try {
+    history.replaceState(null, '', target);
+  } catch {
+    location.hash = new URL(target, location.href).hash;
+  }
+}
+'use strict';
+const iconPaths = {
+  plus:'<path d="M12 5v14M5 12h14"/>', close:'<path d="m6 6 12 12M18 6 6 18"/>',
+  grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+  list:'<path d="M9 5h12M9 12h12M9 19h12M3 5h1M3 12h1M3 19h1"/>',
+  users:'<circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2m1-15a3 3 0 0 1 0 6m2 3a5 5 0 0 1 3 5"/>',
+  locate:'<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 1v4m0 14v4M1 12h4m14 0h4"/>',
+  menu:'<path d="M3 6h18M3 12h18M3 18h18"/>', signal:'<path d="M2 13h4l3-8 5 14 3-8 2 2h3"/>',
+  bulb:'<path d="M9 17c0-2-4-3-4-7a7 7 0 1 1 14 0c0 4-4 5-4 7zM9 20h6m-5 3h4"/>',
+  handshake:'<path d="m2 10 4-5 6 1 4-1 6 5-4 6-3 2-4 1-5-4zm5-4 4 1-3 3c1 2 3 2 5 0l5 4"/>',
+  calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18m-14 4h3m3 0h3"/>',
+  flag:'<path d="M5 21V4c5-3 8 3 14 0v10c-6 3-9-3-14 0"/>',
+  code:'<path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-15-2 20"/>',
+  pin:'<path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0z"/><circle cx="12" cy="10" r="2"/>',
+  terminal:'<rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="m6 8 4 4-4 4m7 0h5"/>',
+  check:'<path d="m4 12 5 5L20 6"/>'
+};
+function icon(name) {
+  return '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(iconPaths[name]||'')+'</svg>';
+}
+function element(tag, className, text) {
+  const node=document.createElement(tag);
+  if(className)node.className=className;
+  if(text!==undefined)node.textContent=text;
+  return node;
+}
+const $=selector=>document.querySelector(selector);
+document.querySelectorAll('[data-icon]').forEach(node=>{node.innerHTML=icon(node.dataset.icon)});
+let activeFilter='all', visibleCount=3, layout='grid', lastNonModal=location.hash.startsWith('#board')?location.hash:'', openFrom=null;
+try{if(localStorage.getItem('wt-board-layout')==='list')layout='list'}catch{}
+const board=$('#board'), dialog=$('#dialog'), dialogContent=$('#dialog-content');
+const nav=$('#navigation'),menu=$('.menu-toggle');
+function closeMenu(){nav.classList.remove('is-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation')}
+menu.addEventListener('click',()=>{const expanded=nav.classList.toggle('is-open');menu.setAttribute('aria-expanded',String(expanded));menu.setAttribute('aria-label',expanded?'Close navigation':'Open navigation')});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});
+function artwork(post, detail=false) {
+  const className=detail?'dialog-art':'card-art';
+  if(post.image) {
+    const image=element('img',className);
+    image.src=post.image;
+    image.alt=post.imageAlt||'';
+    image.loading=detail?'eager':'lazy';
+    return image;
+  }
+  const slot=element('div',className);
+  slot.setAttribute('aria-hidden','true');
+  return slot;
+}
+function card(post) {
+  const link=element('a','post-card');link.href='#post/'+post.id;link.setAttribute('aria-label','View '+post.title);
+  const body=element('div','card-body'), foot=element('div','post-foot'),tag=element('span','tag '+post.category,categories[post.category].tag);
+  body.append(tag,element('h3','',post.title),element('p','',post.summary));
+  const meta=element('span','meta'),place=element('span','place');
+  meta.innerHTML=icon(post.icon);meta.append(post.meta);place.innerHTML=icon('pin');place.append(post.place);
+  foot.append(meta,place);link.append(artwork(post),body,foot);return link;
+}
+for(const [key,cat] of Object.entries(categories)){
+  const btn=element('button','filter');btn.type='button';btn.dataset.filter=key;btn.innerHTML=icon(cat.icon);btn.append(cat.label);
+  btn.addEventListener('click',()=>{
+    activeFilter=key;visibleCount=3;lastNonModal=key==='all'?'#board':'#board/'+key;offlineReplaceLocation(lastNonModal);renderBoard();
+  });$('#filters').append(btn);
+}
+function renderBoard(){
+  const subset=posts.filter(p=>activeFilter==='all'||activeFilter===p.category), shown=subset.slice(0,visibleCount);
+  $('#post-grid').replaceChildren(...shown.map(card));$('#post-grid').classList.toggle('is-list',layout==='list');
+  $('#grid-view').setAttribute('aria-pressed',String(layout==='grid'));$('#list-view').setAttribute('aria-pressed',String(layout==='list'));
+  document.querySelectorAll('.filter').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.filter===activeFilter)));
+  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('current',a.getAttribute('href')==='#board/'+activeFilter));
+  $('#more-wrap').hidden=shown.length>=subset.length;$('#board-status').textContent=shown.length+' of '+subset.length+' posts shown.';
+}
+for(const type of ['grid','list'])$('#'+type+'-view').addEventListener('click',()=>{layout=type;try{localStorage.setItem('wt-board-layout',type)}catch{}renderBoard()});
+$('#more-posts').addEventListener('click',()=>{const firstNew=visibleCount;visibleCount+=6;renderBoard();$('#post-grid').children[firstNew]?.focus({preventScroll:true})});
+function drawWire(){
+  const items=[['2026-11-30','NOV 30','3d-pen-night'],['2026-12-09','DEC 09','open-maker'],['2026-12-19','DEC 15 + 19','onshape-boat-challenge'],['2027-03-13','MAR 13','wesef']];
+  const today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const upcoming=items.filter(row=>row[0]>=today).slice(0,3);
+  upcoming.forEach(([,label,id])=>{const post=posts.find(p=>p.id===id), a=element('a');a.href='#post/'+id;a.append(element('b','',label),post.title);$('#wire-items').append(a)});
+  if(!upcoming.length){const a=element('a','','Explore the event board');a.href='#board/events';$('#wire-items').append(a)}
+}
+function showDialog(){if(!dialog.open){openFrom=document.activeElement;dialog.showModal()}dialog.scrollTop=0;$('.dialog-close').focus({preventScroll:true})}
+function returnFromDialog(){
+  offlineReplaceLocation(lastNonModal || location.href.split('#')[0]);
+  if(dialog.open)dialog.close();if(openFrom?.isConnected)openFrom.focus({preventScroll:true});
+}
+$('.dialog-close').addEventListener('click',returnFromDialog);
+dialog.addEventListener('cancel',event=>{event.preventDefault();returnFromDialog()});
+dialog.addEventListener('click',event=>{const rect=dialog.getBoundingClientRect();if(event.target===dialog&&(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom))returnFromDialog()});
+function showPost(post){
+  dialogContent.replaceChildren(artwork(post,true));
+  const main=element('div','dialog-main'),title=element('h2','',post.title);title.id='dialog-title';
+  main.append(element('span','tag '+post.category,categories[post.category].tag),title,element('p','',post.intro));
+  const facts=element('dl','facts');post.details.forEach(([term,value])=>{const row=element('div');row.append(element('dt','',term),element('dd','',value));facts.append(row)});
+  const action=element('a','button black',post.action);action.href=post.url||'#join/'+post.formRole;
+  if(post.url){action.target='_blank';action.rel='noopener noreferrer'}
+  main.append(facts,action);dialogContent.append(main);showDialog();
+}
+function showJoin(role) {
+  const current = Object.hasOwn(roles, role) ? role : 'student';
+  const messages = {
+    student: 'Explore local tech opportunities and share ideas with the countywide network.',
+    club: 'Introduce your school club, suggest a listing, or propose a joint event.',
+    mentor: 'Offer to mentor a team, speak at a club meeting, or run a workshop.',
+    sponsor: 'Offer equipment, a venue, or support for a student event.',
+    hackathon: 'Express interest in attending or helping plan the countywide hackathon.'
+  };
+  const main = element('div', 'dialog-main no-art');
+  const title = element('h2', '', 'Get involved');
+  title.id = 'dialog-title';
+  const instructions = element('p', '', 'To use the interest form, open the full site by running python serve.py from the unzipped project folder.');
+  const done = element('button', 'button black', 'Back to the site');
+  done.type = 'button';
+  done.addEventListener('click', returnFromDialog);
+  main.append(element('span', 'dialog-kicker', 'Offline preview'), title,
+    element('strong', '', roles[current]), element('p', '', messages[current]), instructions, done);
+  dialogContent.replaceChildren(main);
+  showDialog();
+}
+function route(){
+  closeMenu();const [page,value]=location.hash.slice(1).split('/');
+  if(page==='post'){const post=posts.find(p=>p.id===value);if(post){showPost(post);return}}
+  if(page==='join'){showJoin(value);return}
+  if(dialog.open)dialog.close();
+  lastNonModal=location.hash;
+  if(page==='board'){activeFilter=Object.hasOwn(categories,value)?value:'all';visibleCount=3;renderBoard();board.scrollIntoView({block:'start'})}
+  if(page==='top')window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',route);
+document.addEventListener('click',event=>{const a=event.target.closest('a[href^="#"]');if(a&&a.hash===location.hash){event.preventDefault();route()}});
+drawWire();renderBoard();route();
+</script>
+</body>
+</html>

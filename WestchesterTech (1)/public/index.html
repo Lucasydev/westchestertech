@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f1">
+  <meta name="description" content="Discover Westchester County tech events, high school clubs, student inventions, and a countywide hackathon in the making.">
+  <title>WestchesterTech.org | The student tech network</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/site.css">
+  <script src="/content.js" defer></script>
+  <script src="/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#board">Skip to community board</a>
+  <header class="header" id="top">
+    <div class="wrap header-row">
+      <a class="brand" href="#top" aria-label="WestchesterTech.org home"><span>WestchesterTech<span class="brand-domain">.org</span></span></a>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#board/events">Events</a><a href="#board/innovations">Innovations</a><a href="#board/clubs">Clubs</a><a href="#post/westchester-hackathon">Hackathon</a>
+      </nav>
+      <div class="header-actions"><a class="button orange top-join" href="#join"><span data-icon="plus"></span>Get involved</a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navigation"><span data-icon="menu"></span></button></div>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <div class="eyebrow hero-loc"><span data-icon="locate"></span>Westchester County, NY</div>
+          <h1 id="hero-title">Built here.<br>Built together<span>.</span></h1>
+          <p>Your hub for high school tech in Westchester. Discover local events, meet student builders, and bring your next idea to life.</p>
+          <div class="hero-actions"><a class="button black" href="#board"><span data-icon="grid"></span>Explore the board</a><a class="button outline" href="#board/clubs"><span data-icon="users"></span>Find a club</a></div>
+        </div>
+        <div class="hero-art"><!-- Place the hero image here and give it descriptive alt text. --></div>
+      </div>
+    </section>
+    <section class="wire" aria-label="Upcoming local events">
+      <div class="wrap wire-row">
+        <div class="wire-label"><span data-icon="signal"></span>On the wire</div>
+        <div class="wire-items" id="wire-items"></div>
+      </div>
+    </section>
+    <section class="board wrap" id="board" aria-labelledby="board-title">
+      <div class="board-head"><div><div class="eyebrow overline">Community feed</div><h2 id="board-title">The community board</h2></div>
+        <div class="view-toggle" aria-label="Board layout"><button id="grid-view" aria-label="Grid view" aria-pressed="true" title="Grid view"><span data-icon="grid"></span></button><button id="list-view" aria-label="List view" aria-pressed="false" title="List view"><span data-icon="list"></span></button></div>
+      </div>
+      <div id="filters" class="filters" role="group" aria-label="Filter community posts"></div>
+      <div id="post-grid" class="post-grid"></div>
+      <p id="board-status" class="sr" role="status"></p>
+      <div id="more-wrap" class="more-wrap"><button class="button outline" id="more-posts"><span data-icon="plus"></span>Show more posts</button></div>
+    </section>
+    <section class="connect" aria-labelledby="connect-title"><div class="wrap connect-grid">
+      <div><div class="eyebrow overline">Get involved</div><h2 id="connect-title">Build with us<span>.</span></h2><p>Bring your school, your experience, or your support to the Westchester tech community.</p></div>
+      <div class="connect-links">
+        <a href="#join/club"><span data-icon="users"></span><span>Connect your school club</span><span data-icon="plus"></span></a>
+        <a href="#join/mentor"><span data-icon="bulb"></span><span>Become a mentor or speaker</span><span data-icon="plus"></span></a>
+        <a href="#join/sponsor"><span data-icon="handshake"></span><span>Sponsor a student project or event</span><span data-icon="plus"></span></a>
+      </div>
+    </div></section>
+  </main>
+  <footer class="wrap">
+    <div class="foot-row">
+      <a class="brand" href="#top"><span>WestchesterTech<span class="brand-domain">.org</span></span></a>
+      <span class="foot-place">Westchester County, New York</span>
+    </div>
+    <p class="copyright">© 2026 Westchester Tech Alliance. All rights reserved. Founded by Lucas Yu.</p>
+  </footer>
+  <dialog id="dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close dialog"><span data-icon="close"></span></button><div id="dialog-content"></div></dialog>
+</body>
+</html>
